@@ -1,0 +1,127 @@
+<?php
+session_start();
+
+if((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany']==true))
+{
+    header('Location:raport.php');
+    exit();
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+<link rel="stylesheet" href="style.css" type="text/css"/>
+<link href='http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<title>Raport finansowy</title>
+</head>
+
+<body>
+<div id="container">
+    <div id="logo">
+    Program do przeprowadzenia analizy finansowej na 40 lat!
+    </div>
+
+    <div id="menu">
+        <div class="option"><a href="index.php">Strona główna</a></div>
+        <div class="option"><a href="kontakt.php">Kontakt</a></div>
+        <div class="option">Film</div>
+        <div style="clear:both;"></div>
+    </div>
+
+    <div id="topbar">
+
+        <div id="topbarL">
+            <img src="ff06.png"/>
+        </div>
+
+        <div id="topbarR">
+         <h1 style="font-size:35px; margin-top:-10px; margin-bottom:-10px;"> O projekcie  </h1><br/>
+         <div style="font-size:20px;"> Projekt powstał aby ułatwić zaplanowanie 
+         swojego stylu oszczędzania, aby możliwie jak najlepiej zaplanować finansowo 
+         swoją przyszłość. Dlatego też raport zawiera wykres aby pokazać graficznie jak 
+         oprocentowanie oraz podatek inflacyjny wpływa na wartość pieniądza w czasie.
+        </div>
+        </div>
+    <div style="clear:both;"></div>
+    </div>
+    <div id=allcontent>
+    <div id="sidebar">
+
+
+
+<form action="zaloguj.php" method="post">
+    Login: <br/> <input type="text" name="login"/> <br/>
+    Hasło: <br/> <input type="password" name="haslo"/> <br/><br/>
+    
+    <div id="sidebarerror">
+        <?php
+            if(isset($_SESSION['blad']))
+            echo $_SESSION['blad'];
+        ?>
+    </div>
+    
+    <input type="submit" value="Zaloguj się"/>
+
+</form>
+<br/>
+
+        <div class="optionL">
+            <a href="rejestracja.php">Darmowa Rejestracja</a>
+        </div>
+        <div style="clear:both;"></div>
+
+    </div>
+
+    <div id="content">
+    <b>Umiesz oszczędzać? Odpowiedz sobie na te pytania. 
+    Jeśli nie potrafisz, przejrzyj historię konta</b>
+    <br/><br/>
+    Porządek w finansach to jedna z najważniejszych rzeczy na drodze ku bogactwu. 
+    Ułożenie domowego budżetu - niezależnie, czy żyjemy sami w wynajętym mieszkaniu, 
+    czy już założyliśmy rodzinę i spłacamy kredyt - to rzecz, którą należy zrobić jak 
+    najszybciej. Inaczej każda utrata pracy i finansowy poślizg będzie nam spędzać sen 
+    z powiek.
+    <br/><br/>
+    Niestety, porządkowania finansów nikt w szkole nas nie uczył - jeśli wiedzy na ten 
+    temat nie przekażą nam rodzice, najprawdopodobniej sami nigdy nie weźmiemy się za 
+    planowanie domowego budżetu.
+    <br/><br/>
+    To błąd, który potrafi mścić się latami. Lecz jeśli odpowiednio szybko - najlepiej 
+    przed 30-tką - ułożymy swoje finanse, oszczędzanie i ogólnie zarządzanie pieniędzmi 
+    stanie się o wiele łatwiejsze.
+    <br/><br/>
+    <b>Czy mogę odkładać pieniądze, a jeśli tak - to ile?</b>
+    <br/>
+    Jeśli wyliczyliśmy, ile pensji pochłaniają faktyczne koszty, z pozostałości - jeśli 
+    takową dysponujemy - należy wydzielić sobie kwotę, którą będziemy co miesiąc odkładać. 
+    Może to być 100 zł, a może być 1000 - zależy to tylko od twoich finansowych możliwości. 
+    Im więcej, tym lepiej dla twojej przyszłości.
+    <br/><br/>
+    Ważne jednak jest, by oszczędzanie stało się nawykiem. By łatwiej to osiągnąć, można 
+    uznać je za stały koszt - i potraktować przelew na lokatę tak samo, jak rachunki za 
+    prąd. Jeśli po otrzymaniu pensji od razu będziemy jej część przeznaczać na oszczędności, 
+    łatwiej będzie nam się zdyscyplinować. Zdecydowanie lżej też przychodzi przelanie 
+    kilkuset złotych, gdy na koncie mamy kilka tysięcy niż gdy widmo końca miesiąca zagląda 
+    nam w oczy.
+
+        <div id="homemoney">
+            <img src="ff07.jpg"/>
+        </div>
+    </div>
+</div>
+
+    <div id="footer">
+    Poznaj swoje możliwości! Zaplanuj swoją przyszłość!  &copy; wszelkie prawa zastrzeżone 
+    </div>
+
+
+
+
+   
+</div>
+</body>
+</html>
